@@ -1,0 +1,45 @@
+/* AI Fluency Master - responsive.css */
+
+/* Large tablets */
+@media (max-width:1024px){
+  .container{width:94%;}
+  .hero h2{font-size:2.5rem;}
+}
+
+/* Tablets */
+@media (max-width:768px){
+  .site-header .container{
+    flex-direction:column;
+    gap:12px;
+  }
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+  }
+  nav a{margin:0;}
+  .hero{
+    min-height:70vh;
+    padding:40px 20px;
+  }
+  .hero h2{font-size:2rem;}
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Phones */
+@media (max-width:480px){
+  body{font-size:16px;}
+  .hero h2{font-size:1.6rem;}
+  .hero p{font-size:.95rem;}
+  .btn{
+    display:block;
+    width:100%;
+    margin:10px 0;
+    text-align:center;
+  }
+  section{padding:50px 0;}
+  .card{padding:18px;}
+}
