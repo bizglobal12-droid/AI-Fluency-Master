@@ -1,0 +1,98 @@
+/* ==========================================
+   AI Fluency Master - animations.css
+   Version: 1.0
+========================================== */
+
+/* Smooth fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade up */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating effect */
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Soft glow */
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px rgba(212, 175, 55, .25);
+    }
+
+    50% {
+        box-shadow: 0 0 28px rgba(212, 175, 55, .55);
+    }
+}
+
+/* Card reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero animation */
+.hero {
+    animation: fadeIn 1.2s ease;
+}
+
+/* Floating objects */
+.float {
+    animation: floating 5s ease-in-out infinite;
+}
+
+/* Premium buttons */
+.btn:hover {
+    animation: glowPulse 1.5s infinite;
+}
+
+/* Cards */
+.card {
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* Titles */
+.section-title {
+    animation: fadeUp .8s ease;
+}
