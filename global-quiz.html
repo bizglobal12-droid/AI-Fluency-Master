@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Final Assessment | AI Fluency Master</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="container">
+
+<h1 class="logo">AI Fluency Master</h1>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="#quiz">Final Quiz</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<h1>AI Fluency Final Assessment</h1>
+
+<p>
+
+Test your understanding of the complete 4D Framework.
+
+</p>
+
+</div>
+
+</section>
+
+<main class="container">
+
+<section class="card reveal">
+
+<h2>Instructions</h2>
+
+<ul>
+
+<li>Answer every question.</li>
+
+<li>Select one answer for each question.</li>
+
+<li>Click <strong>Submit Assessment</strong> to view your score.</li>
+
+<li>A score of <strong>70% or above</strong> is considered a pass.</li>
+
+</ul>
+
+</section>
+
+<section id="quiz" class="card reveal">
+
+<h2>Final Quiz</h2>
+
+<form id="quizForm">
+
+<h3>1. Which principle focuses on assigning suitable tasks to AI?</h3>
+
+<label><input type="radio" name="q1" value="a"> Delegation</label><br>
+<label><input type="radio" name="q1" value="b"> Diligence</label><br>
+<label><input type="radio" name="q1" value="c"> Discernment</label><br>
+<label><input type="radio" name="q1" value="d"> Direction</label>
+
+<hr>
+
+<h3>2. Which principle requires verifying AI responses?</h3>
+
+<label><input type="radio" name="q2" value="a"> Direction</label><br>
+<label><input type="radio" name="q2" value="b"> Diligence</label><br>
+<label><input type="radio" name="q2" value="c"> Delegation</label><br>
+<label><input type="radio" name="q2" value="d"> Prompting</label>
+
+<hr>
+
+<h3>3. AI hallucinations are mainly addressed through:</h3>
+
+<label><input type="radio" name="q3" value="a"> Delegation</label><br>
+<label><input type="radio" name="q3" value="b"> Discernment</label><br>
+<label><input type="radio" name="q3" value="c"> Speed</label><br>
+<label><input type="radio" name="q3" value="d"> Automation</label>
+
+<hr>
+
+<h3>4. Good prompts usually include:</h3>
+
+<label><input type="radio" name="q4" value="a"> Clear objectives</label><br>
+<label><input type="radio" name="q4" value="b"> Random instructions</label><br>
+<label><input type="radio" name="q4" value="c"> Missing context</label><br>
+<label><input type="radio" name="q4" value="d"> Ambiguous wording</label>
+
+<hr>
+
+<h3>5. Who is responsible for the final AI-assisted work?</h3>
+
+<label><input type="radio" name="q5" value="a"> The AI</label><br>
+<label><input type="radio" name="q5" value="b"> The User</label><br>
+<label><input type="radio" name="q5" value="c"> The Computer</label><br>
+<label><input type="radio" name="q5" value="d"> Nobody</label>
+
+<hr>
+
+<button type="button" class="btn" onclick="gradeQuiz()">
+
+Submit Assessment
+
+</button>
+
+</form>
+
+<div id="result" class="card" style="display:none;margin-top:25px;">
+
+<h2>Your Result</h2>
+
+<p id="scoreText"></p>
+
+</div>
+
+</section>
+
+</main>
+
+<script>
+
+function gradeQuiz(){
+
+let score=0;
+
+const answers={
+q1:"a",
+q2:"b",
+q3:"b",
+q4:"a",
+q5:"b"
+};
+
+for(let q in answers){
+
+let selected=document.querySelector('input[name="'+q+'"]:checked');
+
+if(selected && selected.value===answers[q]){
+
+score++;
+
+}
+
+}
+
+let percent=(score/5)*100;
+
+document.getElementById("result").style.display="block";
+
+if(percent>=70){
+
+document.getElementById("scoreText").innerHTML=
+"<strong>Congratulations!</strong><br><br>You scored <strong>"+percent+"%</strong>.<br>You successfully passed the AI Fluency Final Assessment.";
+
+}else{
+
+document.getElementById("scoreText").innerHTML=
+"You scored <strong>"+percent+"%</strong>.<br>Please review the chapters and try again.";
+
+}
+
+}
+
+</script>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
