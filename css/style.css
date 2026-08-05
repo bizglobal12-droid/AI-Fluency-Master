@@ -536,3 +536,210 @@ border-top:1px solid rgba(255,255,255,.3);
 margin:10px 0;
 
 }
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 992px){
+
+.hero-grid{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.site-header .container{
+
+flex-direction:column;
+
+}
+
+nav ul{
+
+justify-content:center;
+
+}
+
+.hero h2{
+
+font-size:38px;
+
+}
+
+.section-title{
+
+font-size:30px;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.container{
+
+width:95%;
+
+}
+
+.hero{
+
+padding:60px 0;
+
+}
+
+.hero h2{
+
+font-size:30px;
+
+}
+
+.hero p{
+
+font-size:17px;
+
+}
+
+.cards,
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.logo h1{
+
+font-size:24px;
+
+}
+
+nav ul{
+
+flex-direction:column;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.btn{
+
+display:block;
+
+width:100%;
+
+text-align:center;
+
+margin:12px 0;
+
+}
+
+table{
+
+display:block;
+
+overflow-x:auto;
+
+white-space:nowrap;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.hero h2{
+
+font-size:26px;
+
+}
+
+.section-title{
+
+font-size:26px;
+
+}
+
+.card{
+
+padding:20px;
+
+}
+
+}
+
+/* ==========================================
+   SIMPLE ANIMATIONS
+========================================== */
+
+.card,
+.hero-card,
+.btn{
+
+transition:all .3s ease;
+
+}
+
+.reveal{
+
+animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ==========================================
+   UTILITIES
+========================================== */
+
+.text-center{
+
+text-align:center;
+
+}
+
+.mt-1{margin-top:10px;}
+.mt-2{margin-top:20px;}
+.mt-3{margin-top:30px;}
+.mt-4{margin-top:40px;}
+
+.mb-1{margin-bottom:10px;}
+.mb-2{margin-bottom:20px;}
+.mb-3{margin-bottom:30px;}
+.mb-4{margin-bottom:40px;}
+
+img{
+
+max-width:100%;
+
+height:auto;
+
+display:block;
+
+}
+
+/* ==========================================
+   END OF STYLESHEET
+========================================== */
