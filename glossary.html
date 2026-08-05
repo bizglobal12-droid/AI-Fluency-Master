@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Glossary | AI Fluency Master</title>
+
+<meta name="description"
+content="Comprehensive AI Glossary for AI Fluency Master">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<div class="container">
+
+<h1 class="logo">
+AI Fluency Master
+</h1>
+
+<nav>
+
+<a href="index.html">Home</a>
+<a href="#search">Search</a>
+<a href="#glossary">Glossary</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<h1>
+
+Artificial Intelligence Glossary
+
+</h1>
+
+<p>
+
+A quick reference guide to the most important AI concepts,
+terminologies and technologies.
+
+</p>
+
+</div>
+
+</section>
+
+<main class="container">
+
+<section id="search" class="card reveal">
+
+<h2>Search the Glossary</h2>
+
+<input
+type="text"
+id="glossarySearch"
+placeholder="Search AI terms..."
+style="width:100%;padding:15px;font-size:16px;border-radius:10px;">
+
+</section>
+
+<section id="glossary" class="card reveal">
+
+<h2>Core AI Terms</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Artificial Intelligence (AI)</h3>
+
+<p>
+
+The branch of computer science focused on building systems capable of performing tasks that normally require human intelligence, including reasoning, learning, perception, language understanding, and decision-making.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Machine Learning</h3>
+
+<p>
+
+A subset of AI in which algorithms learn patterns from data to make predictions or decisions without being explicitly programmed for every task.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Deep Learning</h3>
+
+<p>
+
+A specialized branch of machine learning that uses multi-layer neural networks to solve complex tasks such as image recognition, speech processing, and natural language understanding.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Neural Network</h3>
+
+<p>
+
+A computational model inspired by the human brain, consisting of interconnected nodes that process information and learn from examples.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Large Language Model (LLM)</h3>
+
+<p>
+
+An AI model trained on vast collections of text to understand, generate, summarize, translate, and answer questions using natural language.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Prompt Engineering</h3>
+
+<p>
+
+The practice of designing clear and structured instructions that help AI systems generate useful, accurate, and relevant outputs.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Hallucination</h3>
+
+<p>
+
+A situation where an AI system generates information that appears believable but is inaccurate, fabricated, or unsupported by evidence.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Token</h3>
+
+<p>
+
+A unit of text processed by language models. Tokens may represent complete words, parts of words, punctuation, or symbols.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Transformer</h3>
+
+<p>
+
+A deep learning architecture that uses self-attention mechanisms to process relationships between words efficiently, forming the foundation of modern language models.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Natural Language Processing (NLP)</h3>
+
+<p>
+
+The field of AI concerned with enabling computers to understand, interpret, generate, and interact using human language.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="card reveal">
+
+<h2>Coming Soon</h2>
+
+<p>
+
+This glossary will continue to expand with over 150 AI terms, including concepts in computer vision, robotics, reinforcement learning, vector databases, embeddings, retrieval-augmented generation (RAG), ethics, AI governance, cybersecurity, and emerging technologies.
+
+</p>
+
+</section>
+
+</main>
+
+<script>
+
+const search=document.getElementById("glossarySearch");
+
+search.addEventListener("keyup",function(){
+
+const value=this.value.toLowerCase();
+
+document.querySelectorAll("#glossary .card").forEach(card=>{
+
+card.style.display=
+card.innerText.toLowerCase().includes(value)
+? "block":"none";
+
+});
+
+});
+
+</script>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
