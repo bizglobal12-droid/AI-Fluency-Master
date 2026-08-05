@@ -362,3 +362,177 @@ li{
 margin-bottom:10px;
 
 }
+
+/* ==========================================
+   TABLES
+========================================== */
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin:25px 0;
+
+background:#fff;
+
+border-radius:12px;
+
+overflow:hidden;
+
+}
+
+table th{
+
+background:#0b3d91;
+
+color:#fff;
+
+padding:15px;
+
+text-align:left;
+
+}
+
+table td{
+
+padding:15px;
+
+border-bottom:1px solid #e5e5e5;
+
+}
+
+table tr:nth-child(even){
+
+background:#f8f9fc;
+
+}
+
+/* ==========================================
+   FORM ELEMENTS
+========================================== */
+
+input,
+textarea,
+select{
+
+width:100%;
+
+padding:14px;
+
+margin:12px 0;
+
+border:1px solid #ccc;
+
+border-radius:10px;
+
+font-size:16px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+border-color:#1565c0;
+
+box-shadow:0 0 8px rgba(21,101,192,.25);
+
+}
+
+/* ==========================================
+   QUIZ
+========================================== */
+
+#quizForm label{
+
+display:block;
+
+padding:10px;
+
+margin:8px 0;
+
+background:#f4f7fb;
+
+border-radius:8px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#quizForm label:hover{
+
+background:#dfe9f7;
+
+}
+
+#result{
+
+background:#e8f5e9;
+
+border-left:6px solid #2e7d32;
+
+}
+
+/* ==========================================
+   BLOCKQUOTE
+========================================== */
+
+blockquote{
+
+background:#f8f9fc;
+
+border-left:5px solid #1565c0;
+
+padding:18px;
+
+margin:18px 0;
+
+font-style:italic;
+
+border-radius:8px;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.site-footer{
+
+background:#0b3d91;
+
+color:#fff;
+
+text-align:center;
+
+padding:50px 20px;
+
+margin-top:60px;
+
+}
+
+.site-footer hr{
+
+margin:20px auto;
+
+max-width:400px;
+
+border:0;
+
+border-top:1px solid rgba(255,255,255,.3);
+
+}
+
+.site-footer p{
+
+margin:10px 0;
+
+}
