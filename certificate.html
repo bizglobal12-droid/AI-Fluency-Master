@@ -438,3 +438,123 @@ AI Fluency Master Professional Programme
 and demonstrating practical knowledge, responsible AI usage, critical thinking, prompt engineering skills, and mastery of the AI Fluency Framework.
 
 </p>
+
+  <div class="info-grid">
+
+<div class="info-box">
+
+<h4>Certificate ID</h4>
+
+<p id="certificateID">AFM-000001</p>
+
+</div>
+
+<div class="info-box">
+
+<h4>Date Issued</h4>
+
+<p id="issueDate"></p>
+
+</div>
+
+<div class="info-box">
+
+<h4>Status</h4>
+
+<p>Completed</p>
+
+</div>
+
+</div>
+
+<div class="signature-section">
+
+<div class="signature">
+
+<div class="signature-line"></div>
+
+<strong>Course Director</strong>
+
+</div>
+
+<div class="seal">
+
+🏅
+
+</div>
+
+<div class="signature">
+
+<div class="signature-line"></div>
+
+<strong>Imran Ahmad Auwal</strong><br>
+
+Founder & Author
+
+</div>
+
+</div>
+
+<div class="actions">
+
+<button onclick="generateCertificate()">
+
+Generate Certificate
+
+</button>
+
+<button onclick="window.print()">
+
+Print Certificate
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function generateCertificate(){
+
+const input=document.getElementById("studentName");
+
+const display=document.getElementById("displayName");
+
+if(input.value.trim()===""){
+
+alert("Please enter your full name.");
+
+return;
+
+}
+
+display.textContent=input.value;
+
+display.style.display="block";
+
+const today=new Date();
+
+document.getElementById("issueDate").textContent=
+
+today.toLocaleDateString("en-GB",{
+
+day:"numeric",
+
+month:"long",
+
+year:"numeric"
+
+});
+
+const random=Math.floor(100000+Math.random()*900000);
+
+document.getElementById("certificateID").textContent=
+
+"AFM-"+random;
+
+}
+
+</script>
