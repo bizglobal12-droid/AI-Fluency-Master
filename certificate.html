@@ -403,3 +403,57 @@ Imran Ahmad Auwal
 </div>
 
 </div>
+<script>
+
+function generateCertificate(){
+
+const input=document.getElementById("studentName");
+
+const name=input.value.trim();
+
+if(name===""){
+
+alert("Please enter your full name.");
+
+return;
+
+}
+
+document.getElementById("displayName").innerText=name;
+
+document.getElementById("certificateContent").style.display="block";
+
+document.getElementById("certificateFooter").style.display="block";
+
+input.style.display="none";
+
+const today=new Date();
+
+document.getElementById("issueDate").innerText=
+
+today.toLocaleDateString("en-US",{
+
+year:"numeric",
+
+month:"long",
+
+day:"numeric"
+
+});
+
+const random=Math.floor(100000+Math.random()*900000);
+
+document.getElementById("certificateID").innerText="AFM-"+random;
+
+}
+
+</script>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+  
