@@ -403,6 +403,7 @@ Imran Ahmad Auwal
 </div>
 
 </div>
+
 <script>
 
 function generateCertificate(){
@@ -430,24 +431,22 @@ input.style.display="none";
 const today=new Date();
 
 document.getElementById("issueDate").innerText=
-
 today.toLocaleDateString("en-US",{
-
 year:"numeric",
-
 month:"long",
-
 day:"numeric"
-
 });
 
 const random=Math.floor(100000+Math.random()*900000);
 
-document.getElementById("certificateID").innerText="AFM-"+random;
+document.getElementById("certificateID").innerText=
+"AFM-"+random;
 
 }
 
 </script>
+
+
 
 </div>
 
