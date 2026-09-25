@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".current-year").forEach(e=>e.textContent=new Date().getFullYear());
     document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener("click",function(e){const t=document.querySelector(this.getAttribute("href"));if(t){e.preventDefault();t.scrollIntoView({behavior:"smooth"});}}));
     const revealElements=document.querySelectorAll(".reveal");function reveal(){const trigger=innerHeight*.85;revealElements.forEach(e=>{if(e.getBoundingClientRect().top<trigger)e.classList.add("active");});}addEventListener("scroll",reveal);reveal();
-    const bar=document.getElementById("progress-bar");function reading(){if(!bar)return;const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h>0?(scrollY/h)*100:0)+"%;"}addEventListener("scroll",reading);reading();
+    const bar=document.getElementById("progress-bar");function reading(){if(!bar)return;const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(h>0?(scrollY/h)*100:0)+"%";}addEventListener("scroll",reading);reading();
     const sections=document.querySelectorAll("section[id]"),navLinks=document.querySelectorAll("nav a");function nav(){let cur="";sections.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id;});navLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));}addEventListener("scroll",nav);nav();
     if(!localStorage.getItem(STORAGE_KEY))saveProgress(getProgress());
     addProgressLink();addChapterCompletionUI();updateProgressUI();
