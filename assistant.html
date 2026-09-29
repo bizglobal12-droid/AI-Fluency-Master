@@ -11,11 +11,13 @@
     #chat-box { height: 350px; overflow-y: auto; border: 1px solid #cbd5e1; border-radius: 6px; padding: 15px; margin-bottom: 15px; background: #fafafa; }
     .user-msg { color: #0f172a; font-weight: bold; margin-bottom: 8px; }
     .bot-msg { color: #0369a1; background: #f0f9ff; padding: 10px; border-radius: 6px; margin-bottom: 15px; }
-    .source-tag { font-size: 12px; color: #64748b; margin-top: 5px; display: block; }
+    .error-msg { color: #b91c1c; background: #fef2f2; }
+    .source-tag { font-size: 12px; color: #64748b; margin-top: 8px; display: block; }
     .input-group { display: flex; flex-direction: column; gap: 10px; }
     input[type="text"], input[type="password"] { padding: 10px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 14px; }
     button { padding: 12px; background: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; }
     button:hover { background: #1d4ed8; }
+    button:disabled { opacity: 0.7; cursor: wait; }
   </style>
 </head>
 <body>
@@ -27,18 +29,28 @@
   <div id="chat-box"></div>
 
   <div class="input-group">
-    <input type="password" id="api-key" placeholder="Paste your Gemini API Key here..." />
+    <input type="password" id="api-key" autocomplete="off" placeholder="Paste your Gemini API Key here..." />
     <input type="text" id="user-input" placeholder="Ask anything about Chapter 1-7 or AI Fluency..." />
-    <button onclick="handleSend()">Send Query</button>
+    <button id="send-button" onclick="handleSend()">Send Query</button>
   </div>
 </div>
 
 <script src="js/rag-engine.js"></script>
 <script>
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   async function handleSend() {
     const inputField = document.getElementById('user-input');
     const keyField = document.getElementById('api-key');
     const chatBox = document.getElementById('chat-box');
+    const sendButton = document.getElementById('send-button');
 
     const query = inputField.value.trim();
     const apiKey = keyField.value.trim();
@@ -48,28 +60,35 @@
       return;
     }
 
-    chatBox.innerHTML += `<div class="user-msg">You: ${query}</div>`;
+    chatBox.innerHTML += '<div class="user-msg">You: ' + escapeHtml(query) + '</div>';
     inputField.value = '';
 
     const loadingId = 'loading-' + Date.now();
-    chatBox.innerHTML += `<div class="bot-msg" id="${loadingId}"><em>Retrieving course knowledge base and generating grounded response...</em></div>`;
+    chatBox.innerHTML += '<div class="bot-msg" id="' + loadingId + '"><em>Retrieving course knowledge base and generating grounded response...</em></div>';
     chatBox.scrollTop = chatBox.scrollHeight;
+    sendButton.disabled = true;
 
     try {
       const result = await runRAGQuery(query, apiKey);
       const loadingElem = document.getElementById(loadingId);
-      
-      let sourceInfo = "";
-      if (result.sources.length > 0) {
-        sourceInfo = `<span class="source-tag">📚 Context Retrieved From: ${result.sources.map(s => s.chapter + ' (' + s.title + ')').join(', ')}</span>`;
-      }
 
-      loadingElem.innerHTML = `<strong>AI Assistant:</strong><br>${result.answer}<br>${sourceInfo}`;
+      const sourceInfo = result.sources?.length
+        ? '<span class="source-tag">📚 Context Retrieved From: ' +
+          result.sources.map(s => escapeHtml(s.chapter + ' (' + s.title + ')')).join(', ') +
+          '</span>'
+        : '';
+
+      loadingElem.innerHTML = '<strong>AI Assistant:</strong><br>' +
+        escapeHtml(result.answer).replace(/\n/g, '<br>') +
+        sourceInfo;
     } catch (err) {
       const loadingElem = document.getElementById(loadingId);
-      loadingElem.style.color = 'red';
-      loadingElem.innerHTML = `Error: ${err.message}`;
+      loadingElem.classList.add('error-msg');
+      loadingElem.innerHTML = '<strong>Error:</strong> ' + escapeHtml(err.message);
+    } finally {
+      sendButton.disabled = false;
     }
+
     chatBox.scrollTop = chatBox.scrollHeight;
   }
 </script>
