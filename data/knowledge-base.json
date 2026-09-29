@@ -1,1 +1,44 @@
-
+[
+  {
+    "id": "chap1",
+    "chapter": "Chapter 1",
+    "title": "Delegation",
+    "content": "Learn how AI can automate tasks while humans remain responsible for decisions. Delegation focuses on assigning structured work to AI while retaining oversight and accountability."
+  },
+  {
+    "id": "chap2",
+    "chapter": "Chapter 2",
+    "title": "Diligence",
+    "content": "Master verification, responsible AI usage, and professional quality control. Diligence requires checking facts, reviewing code, and ensuring accuracy in AI outputs."
+  },
+  {
+    "id": "chap3",
+    "chapter": "Chapter 3",
+    "title": "Discernment",
+    "content": "Learn critical thinking, evidence evaluation, and AI fact checking. Discernment is recognizing AI limitations, detecting hallucinations, and evaluating source validity."
+  },
+  {
+    "id": "chap4",
+    "chapter": "Chapter 4",
+    "title": "Direction",
+    "content": "Develop powerful prompting techniques for consistent AI performance. Direction involves writing clear instructions, defining roles, specifying output formats, and guiding AI effectively."
+  },
+  {
+    "id": "chap5",
+    "chapter": "Chapter 5",
+    "title": "Prompt Engineering",
+    "content": "Create structured prompts that produce reliable, accurate, and professional AI responses. Key techniques include system prompts, zero-shot/few-shot prompting, and chain-of-thought instructions."
+  },
+  {
+    "id": "chap6",
+    "chapter": "Chapter 6",
+    "title": "Machine Learning",
+    "content": "Understand supervised learning, unsupervised learning, reinforcement learning, neural models, and AI training workflows. Includes training data, validation, loss functions, and optimization."
+  },
+  {
+    "id": "chap7",
+    "chapter": "Chapter 7",
+    "title": "Deep Learning",
+    "content": "Study neural networks, transformers, computer vision, natural language processing, and modern Generative AI systems like LLMs."
+  }
+]
