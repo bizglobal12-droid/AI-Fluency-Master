@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG AI Assistant - AI Fluency Master</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; }
+    .chat-container { max-width: 800px; margin: 0 auto; background: #ffffff; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); padding: 20px; }
+    h1 { color: #1e293b; font-size: 24px; text-align: center; }
+    #chat-box { height: 350px; overflow-y: auto; border: 1px solid #cbd5e1; border-radius: 6px; padding: 15px; margin-bottom: 15px; background: #fafafa; }
+    .user-msg { color: #0f172a; font-weight: bold; margin-bottom: 8px; }
+    .bot-msg { color: #0369a1; background: #f0f9ff; padding: 10px; border-radius: 6px; margin-bottom: 15px; }
+    .source-tag { font-size: 12px; color: #64748b; margin-top: 5px; display: block; }
+    .input-group { display: flex; flex-direction: column; gap: 10px; }
+    input[type="text"], input[type="password"] { padding: 10px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 14px; }
+    button { padding: 12px; background: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; }
+    button:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+
+<div class="chat-container">
+  <h1>🤖 AI Fluency RAG Assistant</h1>
+  <p style="text-align:center; color:#64748b;">Grounded in course modules using Retrieval-Augmented Generation.</p>
+
+  <div id="chat-box"></div>
+
+  <div class="input-group">
+    <input type="password" id="api-key" placeholder="Paste your Gemini API Key here..." />
+    <input type="text" id="user-input" placeholder="Ask anything about Chapter 1-7 or AI Fluency..." />
+    <button onclick="handleSend()">Send Query</button>
+  </div>
+</div>
+
+<script src="rag-engine.js"></script>
+<script>
+  async function handleSend() {
+    const inputField = document.getElementById('user-input');
+    const keyField = document.getElementById('api-key');
+    const chatBox = document.getElementById('chat-box');
+
+    const query = inputField.value.trim();
+    const apiKey = keyField.value.trim();
+
+    if (!query || !apiKey) {
+      alert('Please enter both your API Key and a question.');
+      return;
+    }
+
+    chatBox.innerHTML += `<div class="user-msg">You: ${query}</div>`;
+    inputField.value = '';
+
+    const loadingId = 'loading-' + Date.now();
+    chatBox.innerHTML += `<div class="bot-msg" id="${loadingId}"><em>Retrieving course knowledge base and generating grounded response...</em></div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    try {
+      const result = await runRAGQuery(query, apiKey);
+      const loadingElem = document.getElementById(loadingId);
+      
+      let sourceInfo = "";
+      if (result.sources.length > 0) {
+        sourceInfo = `<span class="source-tag">📚 Context Retrieved From: ${result.sources.map(s => s.chapter + ' (' + s.title + ')').join(', ')}</span>`;
+      }
+
+      loadingElem.innerHTML = `<strong>AI Assistant:</strong><br>${result.answer}<br>${sourceInfo}`;
+    } catch (err) {
+      const loadingElem = document.getElementById(loadingId);
+      loadingElem.style.color = 'red';
+      loadingElem.innerHTML = `Error: ${err.message}`;
+    }
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+</script>
+
+</body>
+</html>
